@@ -1,0 +1,27 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">title</th>
+      <th scope="col">body</th>
+      <th scope="col">user identifier</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let post of posts  | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+      <th scope="row">{{ post.id }}</th>
+      <td>
+        {{ post.title }}
+      </td>
+      <td>{{ post.body}}</td>
+      <td>{{ post.userId | number }}</td>
+    </tr>
+    </tbody>
+  </table>
+  
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+    </ngb-pagination>
+
+  </div>
+  
